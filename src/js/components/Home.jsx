@@ -1,28 +1,30 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import Digit from "./Digit";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 //create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-            
+const Home = ({timer}) => {
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+	const digits = String(timer % 10000).padStart(6, "0").split("");
+
+	return (
+		<div className="d-flex justify-content-center align-items-center bg-dark text-white p-3">
+      <div className="p-3 m-1 digit-square rounded">
+        <FontAwesomeIcon icon={faClock} />
+		
+      </div>
+	  
+      {digits.map((d, index) => (
+        <Digit key={index} digit={d} />
+      ))}
+    </div>
 	);
 };
+
+
 
 export default Home;

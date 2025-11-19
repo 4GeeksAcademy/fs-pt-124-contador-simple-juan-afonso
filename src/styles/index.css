@@ -9,3 +9,12 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+.digit-square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 3px solid black;
+  }
